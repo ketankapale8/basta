@@ -32,7 +32,9 @@ export default function Examportal({ fetchQuestions }) {
     } else {
       setError(false);
       fetchQuestions(category, difficulty);
-      navigate('/quiz');
+      navigate('/quiz' , {state:{
+        firstName : firstName
+      }});
     }
   };
     // console.log(questioniare);

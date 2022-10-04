@@ -1,12 +1,20 @@
 // import { CircularProgress } from "@mui/material/CircularProgress";
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import Sidebar1 from '../Sidebar1/Sidebar1'
 import Question from "../Question/Question";
 import "./quiz.css";
 
 const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
+  
+
+  const location = useLocation();
+
+  const {firstName} = location.state;
+  console.log(firstName)
 
   useEffect(() => {
     setOptions(
@@ -25,14 +33,17 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
   };
 
   return (
+    <>
+    <Sidebar1 firstName={firstName}/>
     <div className="quiz">
-      <span className="subtitle">Welcome, {name}</span>
+      <span className="subtitle">Welcome, {firstName}</span>
+      <span style={{fontWeight:'bolder', paddingTop:'30px'}}>Practice Test</span>
 
       {questions ? (
         <>
           <div className="quizInfo">
-            <span>{questions[currQues].category}</span>
-            <span>
+            <span style={{fontWeight:'bold'}}>Topic :-{questions[currQues].category}</span>
+            <span style={{fontWeight:'bold'}}>
               {/* {questions[currQues].difficulty} */}
               Score : {score}
             </span>
@@ -57,6 +68,7 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
         />
       )}
     </div>
+    </>
   );
 };
 

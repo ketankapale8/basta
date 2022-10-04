@@ -256,7 +256,6 @@ export default function SignIn() {
                     </div>
 
                     <div className="bottomContent">
-
                         <Box>
                             <Grid container spacing={3} sx={{ mt: 3, ml: -2 }}>
                                 <Grid item style={{ color: '#2e1cc4', cursor: 'pointer' }} >
@@ -270,7 +269,6 @@ export default function SignIn() {
                                 <Grid item style={{ color: '#2e1cc4', cursor: 'pointer' }} sx={{ ml: 3 }}>
                                     Contact us
                                 </Grid>
-
                             </Grid>
                         </Box>
 

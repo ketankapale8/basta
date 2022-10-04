@@ -99,11 +99,11 @@ const Login = () => {
           <h3 className="leftHeading">
             You have to believe in yourself when no one else does..
           </h3>
-          <img src={BannerImg}  className='banner' style={{ zIndex: -10   }} />
+          <img src={BannerImg}  className='banner'  />
         </div>
         <div className="right">
           <div className="content">
-            <img src={BastaLogo} width={132} height={132} style={{ borderRadius: 10 , marginLeft:'500px' }} alt="bastalogo"/>
+            <img src={BastaLogo} width={132} height={132} style={{ borderRadius: 10 , marginLeft:'40%' }} alt="bastalogo"/>
           <Container component="main" maxWidth="xs" style={{marginBottom:'150px'}}>
             <CssBaseline />
             <Box

@@ -6,6 +6,10 @@ import "./result.css";
 const Result = ({ score }) => {
   const navigate = useNavigate();
 
+  const goHome = ()=>{
+    return navigate('/signup')
+  }
+
 //   useEffect(() => {
 //     if (!name) {
 //       navigate("/");
@@ -20,7 +24,7 @@ const Result = ({ score }) => {
         color="secondary"
         size="large"
         style={{ alignSelf: "center", marginTop: 20 }}
-        href="/exam"
+        onClick={goHome}
       >
         Go to homepage
       </Button>

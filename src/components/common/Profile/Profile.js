@@ -4,7 +4,7 @@ import {Link, useNavigate} from 'react-router-dom'
 // import Image from 'next/image';
 // import Navbar from '../Navbar';
 import './profile.css';
-import { Typography } from '@mui/material';
+import { Divider, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -42,53 +42,60 @@ export default function Profile() {
 let location = useLocation();
 const navigation = useNavigate();
 
+
 // console.log(location.state.firstName)
 // return null
 
 const { firstName, lastName, email, phone_no, selectedVal } = location.state;
+const [studentprofileData , setstudentProfileData] = useState({address: '' , zipcode:'', city:'',state:'', sports:'', subjects:'', hobbies:'', class:'', section:'', schoolName:'', schoolAdd :'', schoolZip:'', schoolcity:'', schoolState:''})
 
 const handleSubmit = () => {
   navigation(`/profile/${selectedVal}`, {state:{
-    firstName : firstName,
+            firstName : firstName,
             lastName : lastName,
             email:email,
             phone_no:phone_no,
-            selectedVal : selectedVal
+            selectedVal : selectedVal,
+            address : studentprofileData.address
   }})
 
   // return formData
   
 };
+
+console.log(studentprofileData.address)
   const [submittedProfile, setSubmittedProfile] = useState('');
 
   let StudentPage = () => {
     return (
+      <>
       <div className="formContent">
-        <Box component="form" noValidate sx={{ mt: -2 }} >
-          <FormControl sx={{ m: 1, width: '45ch', display: 'flex', flexDirection: 'column', margin: '30px' }} variant="outlined" >
+        <Box component="form" noValidate  >
+          <FormControl sx={{ m: 1, width: '45ch', display: 'flex', flexDirection: 'column', margin: '30px' ,paddingTop:'50px' }} variant="outlined" >
             <Typography style={{ padding: '10px' }}>
               Personal Details
             </Typography>
             <OutlinedInput
               margin="normal"
               style={{ backgroundColor: '#efedff', width: '450px'  }}
-              // value={formData.firstName}
-              // onChange={(e) =>setFormData({...formData , firstName: e.target.value})}
+              value={studentprofileData.address}
+              onChange={(e) =>setstudentProfileData({...studentprofileData , address: e.target.value})}
               required
-              id="first_name"
-              name="first_name"
+              id="address_"
+              name="address_"
               placeholder='Your Home Address'
-            // autoFocus
             />
           </FormControl>
 
-          <FormControl sx={{ m: 1, width: '45ch', display: 'flex', flexDirection: 'row', margin: '30px' , marginTop:'-10px' }} variant="outlined" >
+          <FormControl sx={{ m: 1, width: '50ch', display: 'flex', flexDirection: 'row', margin: '30px' , marginTop:'-10px' }} variant="outlined" >
             <OutlinedInput
               margin="normal"
               style={{ backgroundColor: '#efedff', width: '450px' , }}
               required
               id="zipcode"
               name="zipcode"
+              value={studentprofileData.zipcode}
+              onChange={(e)=> setstudentProfileData({...studentprofileData , zipcode: e.target.value})}
               // value={formData.password}
               // onChange={(e) =>setFormData({...formData , password: e.target.value})}
               placeholder='Zipcode'
@@ -157,17 +164,17 @@ const handleSubmit = () => {
               // value={formData.firstName}
               // onChange={(e) =>setFormData({...formData , firstName: e.target.value})}
               required
-              id="first_name"
-              name="first_name"
+              id="hobbies"
+              name="hobbies"
               placeholder='Your Hobbies'
-              autoFocus
+              // autoFocus
             />
           </FormControl>
 
           <Typography style={{ paddingBottom: '20px' , }}>
             Institute Details
           </Typography>
-          <FormControl sx={{ m: 1, width: '45ch', display: 'flex', flexDirection: 'row', margin: '30px' , marginTop:'-10px' }} variant="outlined" >
+          <FormControl sx={{ m: 1, width: '50ch', display: 'flex', flexDirection: 'row', margin: '30px' , marginTop:'-10px' }} variant="outlined" >
             <OutlinedInput
               margin="normal"
               style={{ backgroundColor: '#efedff', width: '450px' ,  }}
@@ -222,7 +229,7 @@ const handleSubmit = () => {
             />
           </FormControl>
 
-          <FormControl sx={{ m: 1, width: '45ch', display: 'flex', flexDirection: 'row', margin: '30px' , marginTop:'-10px' }} variant="outlined" >
+          <FormControl sx={{ m: 1, width: '50ch', display: 'flex', flexDirection: 'row', margin: '30px' , marginTop:'-10px' }} variant="outlined" >
             <OutlinedInput
               margin="normal"
               style={{ backgroundColor: '#efedff', width: '450px' }}
@@ -279,6 +286,7 @@ const handleSubmit = () => {
 
         </Box>
       </div>
+      </>
     )
   }
 
@@ -296,8 +304,8 @@ const handleSubmit = () => {
               // value={formData.firstName}
               // onChange={(e) =>setFormData({...formData , firstName: e.target.value})}
               required
-              id="first_name"
-              name="first_name"
+              id="parents_address"
+              name="parents_address"
               placeholder='Your Home Address'
             // autoFocus
             />
@@ -540,8 +548,8 @@ const handleSubmit = () => {
               // value={formData.firstName}
               // onChange={(e) =>setFormData({...formData , firstName: e.target.value})}
               required
-              id="first_name"
-              name="first_name"
+              id="principal_school_address"
+              name="rincipal_school_address"
               placeholder='Your Home Address'
             // autoFocus
             />
@@ -1064,7 +1072,7 @@ const handleSubmit = () => {
     }
   return (
     <div className="formContent">
-      <Box component="form" noValidate sx={{ mt: -2 }} >
+      <Box component="form" noValidate sx={{ mt: -1 }} >
 
       <FormControl sx={{ m: 0, width: '45ch', display: 'flex', flexDirection: 'column', margin: '30px' }} variant="outlined" >
           <Typography style={{ padding: '10px' }}>
@@ -1085,7 +1093,7 @@ const handleSubmit = () => {
           />
         </FormControl>
 
-        <FormControl sx={{ m: 1, width: '45ch', display: 'flex', flexDirection: 'column', margin: '30px' ,marginTop:'-20px' }} variant="outlined" >
+        <FormControl sx={{ m: 1, width: '45ch', display: 'flex', flexDirection: 'column', margin: '30px' ,marginTop:'-30px' }} variant="outlined" >
           <Typography style={{ padding: '10px' }}>
             Personal Details
           </Typography>
@@ -1232,7 +1240,7 @@ const handleSubmit = () => {
           Institute Details
         </Typography>
 
-        <FormControl sx={{ m: 1, width: '45ch', display: 'flex', flexDirection: 'column', margin: '30px' }} variant="outlined" >
+        <FormControl sx={{ m: 1, width: '45ch', display: 'flex', flexDirection: 'column', margin: '30px' ,marginTop:'-5px' }} variant="outlined" >
 
           <OutlinedInput
             margin="normal"
@@ -1327,14 +1335,14 @@ const handleSubmit = () => {
           <div className="profileContent">
             <div className="left">
               <div className="leftContainer">
-                <div className="logo" >
-                  <img src={BastaLogo} width={122} height={122} style={{ borderRadius: 80}} />
-                </div>
+                  <div className="logo" >
+                    <img src={BastaLogo} width={122} height={122} style={{ borderRadius: 80}} />
+                  </div>
                   <div className="name">
                     <h2>{firstName} {lastName}</h2>
                   </div>
-                <div className="leftBottomContainer">
-                  
+                  <Divider/>
+                <div className="leftBottomContainer" style={{padding:'50px'}}>
                   <h5>Email Address</h5>
                   <h5>{email}</h5>
                   <br />
@@ -1344,11 +1352,11 @@ const handleSubmit = () => {
               </div>
             </div>
             <div className="right">
-              { selectedVal == "teacher" ? <TeacherPage />
-              : selectedVal == "student" ? <StudentPage/>
-              : selectedVal == "parent" ? <ParentsPage/>
-              : selectedVal == "principal" ? <PrincipalPage/>
-              : selectedVal == "counsellor" ? <CounsellorPage/>
+              { selectedVal == "teacher" ? TeacherPage()
+              : selectedVal == "student" ? StudentPage()
+              : selectedVal == "parent" ? ParentsPage()
+              : selectedVal == "principal" ? PrincipalPage()
+              : selectedVal == "counsellor" ? CounsellorPage()
               : 'Please select who you are before moving ahead with the profile'
             }
             </div>

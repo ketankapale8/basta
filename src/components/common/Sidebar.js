@@ -1,4 +1,5 @@
 import * as React from 'react';
+// import { makeStyles } from '@mui/styles';
 import { styled, useTheme } from '@mui/material/styles';
 // import Link from 'next/link'
 import Box from '@mui/material/Box';
@@ -22,6 +23,18 @@ import MailIcon from '@mui/icons-material/Mail';
 import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 400;
+
+// const useStyles = makeStyles({
+//   list: {
+//     width: 250
+//   },
+//   fullList: {
+//     width: "auto"
+//   },
+//   page: {
+//     background: "#f9f9f9"
+//   }
+// });
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -72,6 +85,7 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+  
   ({ theme, open }) => ({
     width: drawerWidth,
     flexShrink: 0,
@@ -165,7 +179,7 @@ export default function MiniDrawer({showExam ,firstName}) {
           
         {/* </Toolbar> */}
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}

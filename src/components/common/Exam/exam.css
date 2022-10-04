@@ -1,6 +1,9 @@
 .examContainer{
     min-height: 98.5vh;
     border: 4px solid #39445a93;
+    background-image: url('../../../assets/containerBg.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
     /* background-color: white; */
     margin: 5px;
     padding: 5px;

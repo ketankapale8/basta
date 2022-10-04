@@ -38,6 +38,7 @@ import CachedIcon from '@mui/icons-material/Cached';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import Navbar from '../../../components/common/Navbar';
 import MiniDrawer from '../../../components/common/Sidebar';
+import Sidebar1 from '../../../components/Sidebar1/Sidebar1'
 
 // import ParentSub from '../../pages/profile/parent/parentsub';
 // import PyschologistSub from '../../pages/profile/counsellor/counsellorsub';
@@ -49,49 +50,52 @@ export default function StudentSub() {
   const [showExam , setShowExam] = useState(true)
 //   const router = useRouter();
 //   const data = router.query
-const { firstName, lastName, email, phone_no, selectedVal } = location.state;
+const { firstName, lastName, email, phone_no, selectedVal , address} = location.state;
 
   return (
     <>
       {/* <Navbar data={data} /> */}
-      <MiniDrawer showExam={showExam} firstName={firstName}/>
-      <div className="profileContainer">
-        <div className="profileWrapper">
-          <div className="profileContent">
-            <div className="left">
-              <div className="leftContainer">
-                <div className="logo" >
+      {/* <MiniDrawer showExam={showExam} firstName={firstName}/> */}
+      <Sidebar1 showExam={showExam} firstName={firstName}/>
+      <div className="profileContainer1">
+        <div className="profileWrapper1">
+          <div className="profileContent1">
+            <div className="left1">
+              <div className="leftContainer1">
+                <div className="logo1" >
                   <img src={BastaLogo} width={122} height={122} style={{ borderRadius: 80}} />
                 </div>
-                  <div className="name">
+                  <div className="name1">
                     <h2>{firstName} {lastName}</h2>
                   </div>
-                <div className="leftBottomContainer">
-                  
+                <div className="leftBottomContainer1">
                   <h5>Email Address</h5>
                   <h5>{email}</h5>
                   <br />
                   <h5>Phone Number</h5>
                   <h5>{phone_no}</h5>
+                  <br />
+                  <h5>Address</h5>
+                  <h5>{address}</h5>
                 </div>
               </div>
             </div>
-            <div className="right">
-              <div className="formContent">
-                <Box component="form" noValidate sx={{ mt: 1 }} >
+            <div className="right1">
+              <div className="formContent1">
+                <Box component="form1" noValidate sx={{ mt: 1 }} >
                   <Typography style={{ padding: '10px', fontWeight: 'bold', fontSize: '1.5rem' }}>
                     Personal Details
                   </Typography>
-                  <div className="formValues">
-                    <div className="formItems">
+                  <div className="formValues1">
+                    <div className="formItems1">
                       <img src={Subjects} width="24px" height="24px" />
                       <Typography style={{ paddingLeft: '10px', fontWeight: 'bold', fontSize: '1.2rem' }}>
                         Math , History
                       </Typography>
                     </div>
                   </div>
-                  <div className="formValues">
-                    <div className="formItems">
+                  <div className="formValues1">
+                    <div className="formItems1">
                       <img src={Sports} width="24px" height="24px" />
                       <Typography style={{ paddingLeft: '10px', fontWeight: 'bold', fontSize: '1.2rem' }}>
                         Basketball , cricket
@@ -100,8 +104,8 @@ const { firstName, lastName, email, phone_no, selectedVal } = location.state;
                   </div>
 
 
-                  <div className="formValues">
-                    <div className="formItems">
+                  <div className="formValues1">
+                    <div className="formItems1">
                       <img src={Activities} width="24px" height="24px" />
                       <Typography style={{ paddingLeft: '10px', fontWeight: 'bold', fontSize: '1.2rem' }}>
                         Reading Books , Listening to music
@@ -109,7 +113,7 @@ const { firstName, lastName, email, phone_no, selectedVal } = location.state;
                     </div>
                   </div>
 
-                  <div className="keysAndSchoolInfo">
+                  <div className="keysAndSchoolInfo1">
                     <Typography style={{ paddingLeft: '10px', fontWeight: 'bold', fontSize: '1.5rem' }}>
                       Kendriya Vidyalaya, Vasant Kunj
                     </Typography>
@@ -135,7 +139,7 @@ const { firstName, lastName, email, phone_no, selectedVal } = location.state;
                       </Button>
                     </div>
                   </div>
-                  <div className="keysAndSchoolInfo">
+                  <div className="keysAndSchoolInfo1">
                    <Button
                     variant="contained"
                     style={{ backgroundColor: '#2e1cc4' }}
@@ -145,7 +149,7 @@ const { firstName, lastName, email, phone_no, selectedVal } = location.state;
                    </Button>
                   </div>
 
-                  <div className="updatebuttons">
+                  <div className="updatebuttons1">
                   <Button
                         type="button"
                         variant="contained"

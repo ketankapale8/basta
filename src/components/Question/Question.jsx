@@ -40,6 +40,15 @@ const Question = ({
     } else setError("Please select an option first");
   };
 
+  const handlePrevious = () => {
+    if (currQues > 9) {
+      navigate("/result");
+    } else if (selected) {
+      setCurrQues(currQues - 1);
+      setSelected();
+    } 
+  };
+
   const handleQuit = () => {
     setCurrQues(0);
     setQuestions();
@@ -50,7 +59,7 @@ const Question = ({
       <h1>Question {currQues + 1} :</h1>
 
       <div className="singleQuestion">
-        <h2>{questions[currQues].question}</h2>
+        <h2 style={{fontWeight:'bold'}}>{questions[currQues].question}</h2>
         <div className="options">
           {error && <ErrorMessage>{error}</ErrorMessage>}
           {options &&
@@ -66,6 +75,29 @@ const Question = ({
             ))}
         </div>
         <div className="controls">
+          
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            style={{ width: 185 }}
+            onClick={handleNext}
+          >
+            {currQues > 20 ? "Submit" : "Next Question"}
+          </Button>
+
+        {currQues > 0 && currQues<10 && (
+          <Button
+            variant="contained"
+            color="primary"
+            style={{backgroundColor:'#2e1cc4' , color: 'white' ,width: 185 , marginRight:'50px'}}
+            size="large"
+            onClick={handlePrevious}
+          >
+            {currQues > 0 ? "Previous Question" : ''}
+          </Button>
+        )}
+
           <Button
             variant="contained"
             color="secondary"
@@ -75,15 +107,6 @@ const Question = ({
             onClick={() => handleQuit()}
           >
             Quit
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            style={{ width: 185 }}
-            onClick={handleNext}
-          >
-            {currQues > 20 ? "Submit" : "Next Question"}
           </Button>
         </div>
       </div>
